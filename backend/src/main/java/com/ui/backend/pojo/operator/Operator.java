@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class Operator extends Node {
-
+    String operatorType;
 }

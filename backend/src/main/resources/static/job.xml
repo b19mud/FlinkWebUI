@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <job>
     <configs>
-        <config name="config1" value="111"></config>
-        <config name="config2" value="222"></config>
+        <config name="config1" value="111">
+        </config>
+        <config name="config2" value="222">
+        </config>
     </configs>
-    <source type="KafkaSource" class="org.test.kafka.source" parallelism="2"></source>
+    <source class="com.ui.backend.flink.operator.source.MyTestKafkaSource" parallelism="1">
+        <constructor-param class="" value=""></constructor-param>
+        <constructor-param class="" value=""></constructor-param>
+        <constructor-param class="" value=""></constructor-param>
+    </source>
     <operators>
-        <operator class="org.test.operator1" parallelism="2"></operator>
-        <operator class="org.test.operator2" parallelism="5"></operator>
+        <operator class="com.ui.backend.flink.operator.transformation.MyTestTransformation" parallelism="2">
+        </operator>
     </operators>
-    <sink class="org.test.sink1" parallelism="3">
+    <sink class="com.ui.backend.flink.operator.sink.MyTestSink" parallelism="1">
     </sink>
 </job>
